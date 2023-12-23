@@ -6,7 +6,8 @@ const Card = () => {
     const [passwordState, setPasswordState] = useState("");
     const navigate = useNavigate();
 
-    const handleClick = async () => {
+    const handleClick = async (e) => {
+        e.preventDefault()
         try {
             const response = await fetch("https://dummyjson.com/auth/login", {
                 method: "POST",
@@ -22,16 +23,18 @@ const Card = () => {
             if (response.ok) {
                 const userObject = await response.json();
                 console.log("Response:", userObject);
-                const impData = {"id":userObject.id ,
-                "token" : userObject.token
+                const impData = {"id":userObject?.id ,
+                "token" : userObject?.token
                 }
                 localStorage.setItem("user", JSON.stringify(impData));
                 navigate('/profile');
             } else {
                 console.error("Authentication failed");
+                alert("Authentication error");
             }
         } catch (error) {
             console.error("Error:", error);
+            alert(error);
         }
     };
 
@@ -50,7 +53,6 @@ const Card = () => {
                         id="email"
                         value={usernameState}
                         onChange={(e) => setUsernameState(e.target.value)}
-                        placeholder="atuny0"
                         className="border-2 border-neutral-400 shadow-md"
                     />
                     <span className="text-left font-medium">Password</span>
@@ -60,7 +62,6 @@ const Card = () => {
                         id="password"
                         value={passwordState}
                         onChange={(e) => setPasswordState(e.target.value)}
-                        placeholder="9uQFF1Lh"
                         className="border-2 border-neutral-400 shadow-md"
                     />
                     <button
@@ -76,7 +77,7 @@ const Card = () => {
                         </span>
                     </div>
                 </div>
-                <p>
+                <p className="text-center">
                     Don't have an account?{" "}
                     <span className="text-blue-500">Sign up</span>
                 </p>
