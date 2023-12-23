@@ -28,17 +28,17 @@ const Profile = () => {
 
     return (
         <div>
-            <h1 className="text-center text-white text-shadow-md text-5xl mb-10 ml-[-50px] text-center text-white text-shadow-md text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-[-80px] ml-[-50px] sm:text-5xl sm:mb-[-50px] sm:ml-0">
+            <h1 className="text-center text-white text-shadow-md text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-[-80px] ml-[-50px] sm:text-5xl sm:mb-[-50px] sm:ml-0">
                 Profile Page
             </h1>
             {userData ? (
                 <div className="flex justify-center items-center gap-10 sm:flex sm:flex-col sm:justify-center sm:items-center sm:gap-10">
-                    <div className="text-lg font-semibold text-white bg-blue-500 rounded-lg p-4 shadow-lg mt-16 text-shadow-md sm:scale-80">
+                    <div className="text-lg font-semibold text-white bg-blue-500 rounded-lg p-4 shadow-lg mt-16 text-shadow-md sm:scale-[0.8]">
                         <img
                             src={userData?.image}
                             className="w-[150px] h-[150px] mx-auto transform -translate-y-1/2 rounded-full overflow-hidden relative z-[4px] shadow-md left-52 top-[-30px] bg-gradient-to-b from-blue-500 via-gray-700 to-blue-900 mb-[-90px] ml-[-117px] mt-[50px]"
                         ></img>
-                        <p className="mb-4 mx-7 login sm:scale-80">
+                        <p className="mb-4 mx-7 login sm:scale-[0.8]">
                             Name : {userData?.firstName} {userData?.maidenName}{" "}
                             {userData?.lastName}
                         </p>
